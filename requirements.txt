@@ -1,0 +1,13 @@
+pandas
+matplotlib
+numpy
+scikit-learn
+Flask
+seaborn
+joblib
+seaborn
+click
+streamlit
+scipy
+itsdangerous
+gunicorn

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecom Churn Prediction Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Telecom Churn Prediction Analysis</h1>
+        <img src="{{ saved_image }}" alt="Saved Image">
+        <!-- Main Input Form For Receiving Query to our ML Model -->
+        <form action="{{ url_for('predict')}}" method="post">
+
+            <label for="gender">Enter Gender Value (Female=0/Male=1):</label>
+            <input type="number" id="gender" name="gender" min="0" max="1" value="1"><br><br>
+
+            <label for="multi_screen">Enter Multi-Screen Value (No=0/Yes=1):</label>
+            <input type="number" id="multi_screen" name="multi_screen" min="0" max="1" value="0"><br><br>
+
+            <label for="mail_subscribed">Enter Mail Subscribed Value (No=0/Yes=1):</label>
+            <input type="number" id="mail_subscribed" name="mail_subscribed" min="0" max="1" value="0"><br><br>
+
+            <label for="age">Enter Age:</label>
+            <input type="number" id="age" name="age" min="18" max="82" value="37" step="1"><br><br>
+
+            <label for="no_of_days_subscribed">Enter Number of Days Subscribed:</label>
+            <input type="number" id="no_of_days_subscribed" name="no_of_days_subscribed" min="1" max="243" value="99" step="1"><br><br>
+
+            <label for="weekly_mins_watched">Enter Weekly Minutes Watched:</label>
+            <input type="number" id="weekly_mins_watched" name="weekly_mins_watched" min="0" max="526" value="269" step="1"><br><br>
+
+            <label for="minimum_daily_mins">Enter Minimum Daily Minutes:</label>
+            <input type="number" id="minimum_daily_mins" name="minimum_daily_mins" min="0" max="20" value="10" step="1"><br><br>
+
+            <label for="weekly_max_night_mins">Enter Weekly Max Night Minutes:</label>
+            <input type="number" id="weekly_max_night_mins" name="weekly_max_night_mins" min="42" max="175" value="100" step="1"><br><br>
+
+            <label for="videos_watched">Enter Videos Watched:</label>
+            <input type="number" id="videos_watched" name="videos_watched" min="0" max="19" value="4" step="1"><br><br>
+
+            <label for="customer_support_calls">Enter Customer Support Calls:</label>
+            <input type="number" id="customer_support_calls" name="customer_support_calls" min="0" max="9" value="1" step="1"><br><br>
+
+            <button type="submit">Predict</button>
+        </form>
+        <!-- Display Predicted Result -->
+        <h1>{{ prediction_text }}</h1>
+    </div>
+</body>
+</html>
+
